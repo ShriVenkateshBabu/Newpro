@@ -1,0 +1,85 @@
+@import url('https://fonts.googleapis.com/css2?family=Fredoka:wght@300..700&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Oi&family=Playwrite+GB+J+Guides:ital@0;1&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,800;1,100;1,200;1,300;1,400;1,500&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+ 
+}
+body {
+  background-color: black;
+  height: 50vh;
+  margin: 0;
+  padding: 0;
+}
+
+header {
+  text-align: center;
+  font-family: "Oi", sans-serif;
+  border-top:  2px  solid rgb(10, 10, 10);
+  border-bottom:  2px  solid rgb(10, 10, 10);
+  padding: 10px;
+  background-color: beige;
+
+}
+
+header button{
+  position: relative;
+  left: 10.5cm;
+  width: 40px;
+  border-radius: 10%;
+  color: black;
+  background-color: white;
+  padding: 4px;
+  margin-left: 10px
+
+}
+.App {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  justify-content: space-between;
+}
+.login_container {
+  border: 3px solid black;
+  width: 10cm; /* Increased the width */
+  margin: 0 auto; /* Centers the container horizontally */
+  padding: 1cm;
+  box-sizing: border-box;
+  background-color: rgb(252, 252, 252);
+}
+
+.Login input {
+  display: block;
+  width: 100%;
+  padding: 0.3cm;
+  margin: 0.3cm 0;
+  box-sizing: border-box;
+  background-color: rgb(195, 216, 216);
+}
+.Login input::placeholder {
+  color: rgb(7, 6, 6);
+  font-size: 14px;
+  font-style: bolder;
+}
+
+.Login button {
+  width: 2.4cm;
+  margin-top: 10px;
+  padding: 3px;
+  background-color:rgb(1, 1, 8);
+  color: azure;
+  border-radius: 12px;
+}
+.Login p{
+  font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+  margin-left: 3px;
+}
+footer {
+  text-align: center;
+  font-family: "Oi", sans-serif;
+  border-top:  2px  solid rgb(10, 10, 10);
+  border-bottom:  2px  solid rgb(10, 10, 10);
+  padding: 10px;
+  background-color: beige;
+
+}
