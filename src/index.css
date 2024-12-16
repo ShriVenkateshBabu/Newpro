@@ -74,6 +74,35 @@ header button{
   font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
   margin-left: 3px;
 }
+.Home{
+ position: relative;
+ bottom: 2cm; 
+ margin-left: 1.9cm;
+ 
+}
+.Home table{
+  border-collapse: collapse;
+  table-layout: fixed;
+  
+}
+.Home   thead th{
+  border: 1px solid white;
+  border-collapse: collapse;
+  text-align: left; 
+  padding: 10px;
+  width: 350px;
+  
+}
+.Home  tbody td{
+  border: 1px solid white;
+  border-collapse: collapse;
+  text-align: left; 
+  padding: 10px;
+}
+.Home button {
+  font-family: cursive;
+  width: 70px;
+}
 footer {
   text-align: center;
   font-family: "Oi", sans-serif;
