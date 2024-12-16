@@ -1,6 +1,8 @@
 import React, { useContext,useState } from 'react'
 import {  useNavigate } from 'react-router-dom'
 import { datacontext } from '../DataContext/Dataprovider'
+import {handleInvalid} from "../functions/handleInvalid"
+import { handleInput } from '../functions/handleInput'
 const Newuser = () => {
     let [retypepass,setretypepass] = useState("")
 
@@ -11,8 +13,6 @@ const Newuser = () => {
       if(newuserpas===retypepass){
         
         setTimeout(()=>{navigate("/")},2000)
-        setNewuserid("")
-        setnewuserpas("")
         setretypepass("")
       }
       else{
@@ -21,6 +21,7 @@ const Newuser = () => {
     }
     const style = retypepass!==newuserpas? {color:"red"}:{}
     return (
+   
     <div className='login_container'>
     <form onSubmit={handlesignup}>
     <main className='Login'>
@@ -28,6 +29,8 @@ const Newuser = () => {
     required
     onChange={(e)=>setNewuserid(e.target.value)}
     value={newuserid}
+    onInput={handleInput}
+    onInvalid={handleInvalid}
     />
     <input type="text" placeholder='Enter passsword'
     required

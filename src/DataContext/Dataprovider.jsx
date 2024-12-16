@@ -3,10 +3,13 @@ import React, { createContext, useState } from 'react'
 const Dataprovider = ({children}) => {
   let [newuserid , setNewuserid] = useState("")
   let [newuserpas , setnewuserpas] = useState("")
+  let [loginuserid , setloginuserid] = useState("")
+  let [loginuserpas , setloginuserpas] = useState("")
  
   return (
     <datacontext.Provider value={{
-      newuserid,newuserpas,setnewuserpas,setNewuserid
+      newuserid,newuserpas,setnewuserpas,setNewuserid,
+      setloginuserid,setloginuserpas,loginuserid,loginuserpas
     }}>
       {
         children
