@@ -5,6 +5,7 @@ import Home from './Components/Home'
 import { Routes,Route } from 'react-router-dom';
 import Login from './Components/Login';
 import Newuser from './Components/Newuser';
+import Products from './Components/products';
 const App = () => {
   return (
     <div className='App' >
@@ -15,7 +16,7 @@ const App = () => {
      <Route path="/" element ={<Login/>}/>
      <Route path="/Newuser" element ={<Newuser/>}/>
      <Route path="/Home" element ={<Home/>}/>
-
+     <Route path="/Home/:productsname?" element ={<Products/>}/>
      </Routes>   
      <Footer/> 
       

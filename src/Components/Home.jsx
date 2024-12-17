@@ -1,27 +1,11 @@
-import React, { useState } from 'react'
+import React, { useContext, useState } from 'react'
 import imgdeadpool from "../Images/download.jpeg"
+import { datacontext } from '../DataContext/Dataprovider'
+import { useNavigate, useParams } from 'react-router-dom'
 const Home = () => {
-  const[addproducttable ,setaddproducttable] = useState(false)
-  const[productlistname ,setproductlistname]= useState("")
-  const [itms,setitms] =useState([
-    {
-    id:1,
-    name:"Vegetables",
-    price:124
-   },{
-    id:2,
-    name:"Electronics",
-    price:120,
-   },{
-    id:3,
-    name:"dress",
-    price:120,
-   },{
-    id:4,
-    name:"shoes",
-    price:120,
-   }
-  ])
+  const {addproducttable,setaddproducttable,
+    productlistname,setproductlistname,itms,setitms} = useContext(datacontext)
+    const navigate = useNavigate()
   function handleAddProductList(){
     setaddproducttable(true)
   }
@@ -36,6 +20,14 @@ const Home = () => {
     const del_itm = itms.filter((itms)=>itms.id!=id)
     setitms(del_itm)
 
+
+  }
+  function onclickme(e){
+   const requested_product = e
+   if(requested_product)
+   {
+    navigate(`/Home/${requested_product}`)
+   }
   }
   return (
   <div className='Home'>
@@ -59,8 +51,8 @@ const Home = () => {
         <td style={{color:"whitesmoke"}}>
         {item.name}
         </td>
-        <td style={{color:"whitesmoke"}}>
-        <button>ClickMe</button>
+        <td>
+        <button onClick={()=>onclickme(item.name)}>ClickMe</button>
         </td>
         <td>
         <button onClick={()=>handledeletetable(item.id)}>Delete</button>

@@ -6,7 +6,7 @@
  
 }
 body {
-  background-color: black;
+  background-color: rgb(12, 12, 12);
   height: 50vh;
   margin: 0;
   padding: 0;
@@ -91,6 +91,7 @@ header button{
   text-align: left; 
   padding: 10px;
   width: 350px;
+  color: azure;
   
 }
 .Home  tbody td{
@@ -98,11 +99,13 @@ header button{
   border-collapse: collapse;
   text-align: left; 
   padding: 10px;
+  color: wheat;
 }
 .Home button {
   font-family: cursive;
   width: 70px;
 }
+
 footer {
   text-align: center;
   font-family: "Oi", sans-serif;
