@@ -7,25 +7,26 @@ const Products = () => {
   const[searchpro ,setsearchpro] = useState("")
   const incompro = productsname.toLowerCase()
   const [productincoming, setproductincoming] = useState([]);
+  const[totalprice ,setTotalprice] = useState()
   const [vegetables, setVegetables] = useState([
-    { id: 1, name: "tomato", price: 20, quantity: "1kg" },
-    { id: 2, name: "brinjal", price: 20, quantity: "1kg" },
-    { id: 3, name: "cucumber", price: 20, quantity: "1kg" }
+    { id: 1, name: "tomato", price: 20,initialprice:20, quantity: 1 },
+    { id: 2, name: "brinjal", price: 20,initialprice:20, quantity: 1 },
+    { id: 3, name: "cucumber", price: 20, initialprice:20,quantity: 1 }
   ]);
 
   const [electronics, setElectronics] = useState([
-    { id: 1, name: "apple", price: 100, quantity: "1kg" },
-    { id: 2, name: "samsung", price: 100, quantity: "1kg" }
+    { id: 1, name: "apple", price: 100000, initialprice:100000,quantity: 1 },
+    { id: 2, name: "samsung", price: 100, initialprice:100,quantity: 1 }
     
   ]);
   const [dress, setdress] = useState([
-    { id: 1, name: "kurta", price: 100, quantity: "1kg" },
-    { id: 2, name: "shirt", price: 100, quantity: "1kg" },
-    { id: 2, name: "shirt2", price: 100, quantity: "1kg" }
+    { id: 1, name: "kurta", price: 100,initialprice:100, quantity: 1 },
+    { id: 2, name: "shirt", price: 100,initialprice:100, quantity: 1 },
+    { id: 3, name: "shirt2", price: 100, initialprice:100,quantity: 1 }
   ]);
   const [shoe, setshoe] = useState([
-    { id: 1, name: "nike", price: 100, quantity: "1kg" },
-    { id: 2, name: "adidas", price: 100, quantity: "1kg" }
+    { id: 1, name: "nike", price: 100,initialprice:100, quantity: 1 },
+    { id: 2, name: "adidas", price: 100, initialprice:100,quantity: 1 }
   ]);
 
 
@@ -41,9 +42,24 @@ const Products = () => {
       else {
         setproductincoming(shoe);
       }
-  }, [incompro]);
+  }, []);
 
-
+  function handleIncrement(product) {
+    const find_price = product.initialprice
+  setproductincoming((previousproducts)=>previousproducts
+  .map((item)=>product.id ===item.id ?
+  {...item,
+    price:item.price + find_price,
+    quantity:item.quantity + 1}
+    :
+    item
+))
+  }
+  
+  function addtocart(product){
+    setTotalprice(product.price)
+  }
+  
 return (
     <div className="Home">
         <input
@@ -60,23 +76,28 @@ return (
             <th>Name</th>
             <th>Price</th>
             <th>Quantity</th>
+            <th>cart</th>
           </tr>
         </thead>
         <tbody>
           {productincoming.filter((itm)=>itm.name.toLowerCase().includes(searchpro.toLowerCase()))
-          .map((veg, index) => (
+          .map((product, index) => (
             <tr key={index}>
-              <td>{veg.id}</td>
-              <td>{veg.name}</td>
-              <td>{veg.price}</td>
-              <td>{veg.quantity}
-                <button onClick={handleincrement}
+              <td>{product.id}</td>
+              <td>{product.name}</td>
+              <td>{product.price}</td>
+              <td>{product.quantity}
+                <button onClick={()=>handleIncrement(product)}
                 style={{width:'20px',marginLeft:"10px"}}>+</button>
+              </td>
+              <td>
+              <button onClick={()=>addtocart(product)} style={{width:'90px'}}>Add To Cart </button>
               </td>
             </tr>
           ))}
         </tbody>
       </table>
+      <p style={{color:'white'}}> {totalprice}  </p>
     </div>
   );
 };
